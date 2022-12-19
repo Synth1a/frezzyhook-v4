@@ -1,0 +1,137 @@
+﻿  aes256.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\aes256\aes256.cpp(568,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  AnimationFix.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\AnimationFix.cpp(641,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  AntiAims.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\AntiAims.cpp(1472,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Autowall.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\Autowall.cpp(522,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Chams.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\Chams.cpp(680,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  checksum_crc.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\checksum_crc.cpp(178,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  checksum_md5.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\checksum_md5.cpp(271,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  d3dfont.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\d3dfont.cpp(561,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  DLL_MAIN.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\DLL_MAIN.cpp(66,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  EnginePrediction.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\EnginePrediction.cpp(31,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  FakelagGraph.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\FakelagGraph.cpp(31,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Glow.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\Glow.cpp(71,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  bar.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\GUI\bar.cpp(67,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  button.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\GUI\button.cpp(104,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  checkbox.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\GUI\checkbox.cpp(199,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  child.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\GUI\child.cpp(232,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  colorpicker.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\GUI\colorpicker.cpp(376,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  combo.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\GUI\combo.cpp(176,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  dynamic_text.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\GUI\dynamic_text.cpp(41,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  gui.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\GUI\gui.cpp(2,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Generating Code...
+  Compiling...
+  input_text.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\GUI\input_text.cpp(157,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  keybind.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\GUI\keybind.cpp(199,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  listbox.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\GUI\listbox.cpp(147,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  multicombo.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\GUI\multicombo.cpp(219,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  slider.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\GUI\slider.cpp(133,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  tab.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\GUI\tab.cpp(90,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  text.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\GUI\text.cpp(48,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  window.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\GUI\window.cpp(302,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Hitmarker.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\Hitmarker.cpp(100,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Hooks.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\Hooks.cpp(719,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  imgui.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\imgui\imgui.cpp(2064,1): warning C4005: 'va_copy': macro redefinition
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\imgui\imgui.cpp(2062): message : see previous definition of 'va_copy'
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\imgui\imgui.cpp(10567,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  imgui_demo.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\imgui\imgui_demo.cpp(104,1): warning C4005: 'IM_NEWLINE': macro redefinition
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\imgui\imgui_demo.cpp(102): message : see previous definition of 'IM_NEWLINE'
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\imgui\imgui_demo.cpp(4845,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  imgui_draw.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\imgui\imgui_draw.cpp(126,10): error C2006: '#include': expected "FILENAME" or <FILENAME>
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\imgui\imgui_draw.cpp(149,10): error C2006: '#include': expected "FILENAME" or <FILENAME>
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\imgui\imgui_draw.cpp(3408,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  imgui_freetype.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\imgui\imgui_freetype.cpp(677,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  imgui_impl_dx9.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\imgui\imgui_impl_dx9.cpp(351,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  imgui_impl_win32.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\imgui\imgui_impl_win32.cpp(319,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  imgui_widgets.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\imgui\imgui_widgets.cpp(7819,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  ImRender.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\ImRender.cpp(344,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  i_base_player.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\i_base_player.cpp(1707,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  jsoncpp.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\json\jsoncpp.cpp(2495,1): warning C4005: 'ALIGNAS': macro redefinition
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\json\jsoncpp.cpp(2493): message : see previous definition of 'ALIGNAS'
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\json\jsoncpp.cpp(4172,1): warning C4005: 'isnan': macro redefinition
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\json\jsoncpp.cpp(4158): message : see previous definition of 'isnan'
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\json\jsoncpp.cpp(4177,1): warning C4005: 'isfinite': macro redefinition
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\json\jsoncpp.cpp(4162): message : see previous definition of 'isfinite'
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\json\jsoncpp.cpp(4189,1): warning C4005: 'isfinite': macro redefinition
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\json\jsoncpp.cpp(4177): message : see previous definition of 'isfinite'
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\json\jsoncpp.cpp(4197,1): warning C4005: 'isfinite': macro redefinition
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\json\jsoncpp.cpp(4189): message : see previous definition of 'isfinite'
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\json\jsoncpp.cpp(4204,1): warning C4005: 'isnan': macro redefinition
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\json\jsoncpp.cpp(4172): message : see previous definition of 'isnan'
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\json\jsoncpp.cpp(4209,1): warning C4005: 'isfinite': macro redefinition
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\json\jsoncpp.cpp(4197): message : see previous definition of 'isfinite'
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\json\jsoncpp.cpp(5404,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Generating Code...
+  Compiling...
+  Knifebot.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\Knifebot.cpp(80,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Legitbot.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\Legitbot.cpp(17,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Math.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\Math.cpp(840,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  md5.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\md5.cpp(162,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  menu.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\menu.cpp(1557,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  netvar_manager.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\netvar_manager.cpp(122,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  protect.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\protect\protect.cpp(10,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  RageBackTracking.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\RageBackTracking.cpp(28,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Ragebot.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\Ragebot.cpp(1186,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  render.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\render.cpp(528,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Resolver.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\Resolver.cpp(397,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  SkinChanger.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\SkinChanger.cpp(1,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Tracer.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\Tracer.cpp(152,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Utils.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\Utils.cpp(53,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Variables.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\Variables.cpp(984,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Visuals.cpp
+C:\Users\Cride\Desktop\CatChair-main - Copy (2)\weave\Visuals.cpp(1857,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Generating Code...
