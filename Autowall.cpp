@@ -443,7 +443,7 @@ void PAutoWall::TraceLine(Vector& start, Vector& end, unsigned int mask, IBasePl
 	interfaces.trace->TraceRay(ray, mask, &filter, trace);
 }
 
-void PAutoWall::ClipTrace(Vector& start, Vector& end, IBasePlayer* e, unsigned int mask, ITraceFilter* filter, trace_t* old_trace)
+void PAutoWall::ClipTrace(Vector& start, Vector end, IBasePlayer* e, unsigned int mask, ITraceFilter* filter, trace_t* old_trace)
 {
 	if (!e)
 		return;

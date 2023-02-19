@@ -35,7 +35,7 @@ int MaxInt(int Value, int Max) {
 	else
 		return(Value);
 }
-void TraceLine(Vector& start, Vector& end, unsigned int mask, IBasePlayer* ignore, trace_t* trace)
+void TraceLine(Vector start, Vector end, unsigned int mask, IBasePlayer* ignore, trace_t* trace)
 {
 	Ray_t ray;
 	ray.Init(start, end);

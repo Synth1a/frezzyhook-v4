@@ -35,7 +35,7 @@ namespace HWID {
                 if (HWIDS.find(HWID) != std::string::npos) {
                     Safe = true;
                     HWIDS.clear();
-                    GUID_ = "";
+                    //GUID_ = "";
                     HWID.clear();
                 }
 

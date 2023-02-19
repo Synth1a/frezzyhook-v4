@@ -1065,8 +1065,8 @@ public:
 	float GetDefuseCooldown();
 	float GetC4Blow();
 	float GetTimerLength();
-	int GetButtonDisabled();
-	int GetButtonForced();
+	
+	
 	void UpdateCollisionBounds();
 	void SetSequence(int iSequence);
 	void StudioFrameAdvance();
@@ -1131,13 +1131,13 @@ public:
 	Vector* EyeAngles()
 	{
 		typedef Vector*(__thiscall* OriginalFn)(IBasePlayer*);
-		return getvfunc<OriginalFn>(this, 164)(this);
+		return getvfunc<OriginalFn>(this, 164 + 1)(this);
 	}
 
 	void PreThink()
 	{
 		typedef void(__thiscall *OriginalFn)(PVOID);
-		getvfunc<OriginalFn>(this, 317)(this);
+		getvfunc<OriginalFn>(this, 317 + 1)(this);
 	}
 
 	//OFFSET(get_model_ptr, CStudioHdr*, 0x293C)
@@ -1145,7 +1145,7 @@ public:
 	void Think()
 	{
 		typedef void(__thiscall *OriginalFn)(PVOID);
-		getvfunc<OriginalFn>(this, 138)(this);
+		getvfunc<OriginalFn>(this, 138 + 1)(this);
 	}
 	int32_t& GetThinkTick()
 	{
@@ -1294,7 +1294,7 @@ public:
 	int GetSequenceActivity(int sequence);
 	matrix& GetrgflCoordinateFrame();
 	IBaseViewModel* GetViewModel();
-	std::vector< IBaseCombatWeapon* > GetWeapons();
+	
 	float GetOldSimulationTime();
 	void SetCurrentCommand(CUserCmd* cmd);
 	int GetTickBase();
@@ -1860,8 +1860,8 @@ public:
 	float GetLastShotTime();
 	int GetAmmo(bool second);
 	int32_t GetZoomLevel();
-	char* get_weapon_name_icon();
-	char* get_weapon_name();
+	const char* get_weapon_name_icon();
+	const char* get_weapon_name();
 	bool m_bReloadVisuallyComplete();
 	float &GetAccuracyPenalty();
 	float &GetRecoilIndex();
@@ -1931,7 +1931,7 @@ public:
 		if (!this) return;
 
 		typedef void(__thiscall* oUpdateAccuracyPenalty)(PVOID);
-		return getvfunc<oUpdateAccuracyPenalty>(this, 483)(this);
+		return getvfunc<oUpdateAccuracyPenalty>(this, 483 + 1)(this);
 	}
 
 	float hitchance()

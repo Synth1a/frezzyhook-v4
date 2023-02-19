@@ -1,3 +1,5 @@
+
+
 #include "Math.h"
 #include "render.h"
 #include "interfaces.h"
@@ -5,6 +7,12 @@
 #include "Variables.h"
 #include "Chams.h"
 #include "Glow.h"
+
+#include "vfunc_hook.hpp"
+
+extern vmthook* client_hook;
+
+
 class c_studio_hdr;
 #pragma region Typedefs
 typedef void(__thiscall *PaintTraverseFn)(void*, unsigned int, bool, bool);

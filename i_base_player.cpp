@@ -346,29 +346,21 @@ float IBasePlayer::GetTimerLength() {
 	static std::uintptr_t m_flTimerLength = netvars.GetOffset("DT_PlantedC4", "m_flTimerLength");
 	return *(float*)((uintptr_t)this + m_flTimerLength);
 }
-int IBasePlayer::GetButtonDisabled()
-{
-	return *(int*)((std::uintptr_t)this + 0x3330);
-}
 
-int IBasePlayer::GetButtonForced()
-{
-	return *(int*)((std::uintptr_t)this + 0x3334);
-}
 
 void IBasePlayer::UpdateCollisionBounds()
 {
-	CallVFunc<void>(this, 339);
+	CallVFunc<void>(this, 339 + 1);
 }
 
 void IBasePlayer::SetSequence(int iSequence)
 {
-	CallVFunc<void>(this, 218, iSequence);
+	CallVFunc<void>(this, 218 + 1, iSequence);
 }
 
 void IBasePlayer::StudioFrameAdvance()
 {
-	CallVFunc<void>(this, 219);
+	CallVFunc<void>(this, 219 + 1);
 }
 
 int IBasePlayer::PostThink()
@@ -450,7 +442,7 @@ float_t IBasePlayer::m_surfaceFriction()
 }
 void IBasePlayer::SetLocalViewAngles(Vector angle) {
 	typedef void(__thiscall *original)(void*, Vector&);
-	return getvfunc<original>(this, 372)(this, angle);
+	return getvfunc<original>(this, 372 + 1)(this, angle);
 }
 datamap_t *IBasePlayer::GetDataDescMap()
 {
@@ -533,7 +525,7 @@ int IBasePlayer::GetTeam()
 {
 	//if (!this)
 		//return -1;
-	static int offset = netvars.GetOffset(hs::DT_BaseEntity::s().c_str(), hs::m_iTeamNum::s().c_str());
+	static int offset = 0xF4;
 	return *(int*)((DWORD)this + offset);
 }
 
@@ -688,20 +680,7 @@ bool IBasePlayer::SetupBones(matrix* pBoneToWorldOut, int nMaxBones, int boneMas
 	return getvfunc<Fn>(pRenderable, 13)(pRenderable, pBoneToWorldOut, nMaxBones, boneMask, currentTime);
 }
 
-std::vector< IBaseCombatWeapon* > IBasePlayer::GetWeapons()
-{
-	int* m_hMyWeapons = reinterpret_cast<int*>((DWORD)this + 0x2F08);//0x2DE8);
-	std::vector< IBaseCombatWeapon* > list = {};
-	for (auto i = 0; i < 64; ++i)
-	{
-		auto Weapon = interfaces.ent_list->GetClientEntityFromHandle(m_hMyWeapons[i]);
-		if (Weapon)
-		{
-			list.push_back((IBaseCombatWeapon*)Weapon);
-		}
-	}
-	return list;
-}
+
 
 int32_t IBaseCombatWeapon::WeaponMode()
 {
@@ -993,7 +972,7 @@ bool IBaseCombatWeapon::InReload()
 	return *(bool*)(this + 0x32B5);//0x3285);
 }
 
-char* IBaseCombatWeapon::get_weapon_name()
+const char* IBaseCombatWeapon::get_weapon_name()
 {
 	if (!this)
 		return "UNKNOWN";
@@ -1113,124 +1092,10 @@ char* IBaseCombatWeapon::get_weapon_name()
 	}
 }
 
-char* IBaseCombatWeapon::get_weapon_name_icon()
+const  char* IBaseCombatWeapon::get_weapon_name_icon()
 {
 	if (!this)
 		return "";
-
-	/*switch (GetItemDefinitionIndex())
-	{
-	case weapon_bayonet:
-		return "1";
-	case weapon_knife_survival_bowie:
-		return "7";
-	case weapon_knife_butterfly:
-		return "8";
-	case weapon_knife:
-		return "1";
-	case weapon_knife_falchion:
-		return "0";
-	case weapon_knife_flip:
-		return "2";
-	case weapon_knife_gut:
-		return "3";
-	case weapon_knife_karambit:
-		return "4";
-	case weapon_knife_m9_bayonet:
-		return "5";
-	case weapon_knife_t:
-		return "1";
-	case weapon_knife_tactical:
-		return "6";
-	case weapon_knife_push:
-		return "9";
-	case weapon_deagle:
-		return "A";
-	case weapon_elite:
-		return "B";
-	case weapon_fiveseven:
-		return "C";
-	case weapon_glock:
-		return "D";
-	case weapon_hkp2000:
-		return "E";
-	case weapon_p250:
-		return "F";
-	case weapon_usp_silencer:
-		return "G";
-	case weapon_tec9:
-		return "H";
-	case weapon_revolver:
-		return "J";
-	case weapon_mac10:
-		return "K";
-	case weapon_ump:
-		return "L";
-	case weapon_bizon:
-		return "M";
-	case weapon_mp7:
-		return "N";
-	case weapon_mp5sd:
-		return "N";
-	case weapon_mp9:
-		return "O";
-	case weapon_p90:
-		return "P";
-	case weapon_galilar:
-		return "Q";
-	case weapon_famas:
-		return "R";
-	case weapon_m4a1_silencer:
-		return "T";
-	case weapon_m4a1:
-		return "S";
-	case weapon_aug:
-		return "U";
-	case weapon_sg556:
-		return "V";
-	case weapon_ak47:
-		return "W";
-	case weapon_g3sg1:
-		return "X";
-	case weapon_scar20:
-		return "Y";
-	case weapon_awp:
-		return "Z";
-	case weapon_ssg08:
-		return "a";
-	case weapon_xm1014:
-		return "b";
-	case weapon_sawedoff:
-		return "c";
-	case weapon_mag7:
-		return "d";
-	case weapon_nova:
-		return "e";
-	case weapon_negev:
-		return "f";
-	case weapon_m249:
-		return "g";
-	case weapon_taser:
-		return "h";
-	case weapon_flashbang:
-		return "l";
-	case weapon_hegrenade:
-		return "i";
-	case weapon_smokegrenade:
-		return "m";
-	case weapon_molotov:
-		return "n";
-	case weapon_decoy:
-		return "o";
-	case weapon_incgrenade:
-		return "p";
-	case weapon_c4:
-		return "q";
-	case weapon_cz75a:
-		return "I";
-	default:
-		return "1";
-	}*/
 
 	switch (GetItemDefinitionIndex()) {
 	case weapon_knife:

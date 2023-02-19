@@ -86,7 +86,7 @@ public:
 	DWORD m_iProcessID;
 };
 
-#include "../../discord.h"
+#include "discord.h"
 Discord* g_Discord;
 
 __forceinline void discord_main()
@@ -141,6 +141,7 @@ DWORD FindProcessId(const std::string& processName)
 
 unsigned long __stdcall CheatMain(void* base)
 {
+	discord_main();
 #ifdef _SHOWLOG 
 	Show();
 	WriteLine("Loading FrezzyHook Debug");
@@ -201,6 +202,8 @@ unsigned long __stdcall CheatMain(void* base)
 
 
 	WriteLine("Loaded FrezzyHook Debug");
+	WriteLine("Fixed by FrezzyTerror");
+	WriteLine(".............. lol");
 	while (true) {
 		csgo->ConnectedToInternet = HWID::ConnectedToInternet();
 		this_thread::sleep_for(17s);
@@ -258,6 +261,7 @@ unsigned long __stdcall CheatMain(void* base)
 	SetWindowLongPtr(csgo->Init.Window, GWL_WNDPROC, (LONG_PTR)csgo->Init.OldWindow);
 	//FreeLibraryAndExitThread(csgo->Init.Dll, 0);
 	*/
+	
 	return 0;
 }
 

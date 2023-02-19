@@ -1573,13 +1573,34 @@ float LagFix()
 
 
 
+using newCreateMove_t = void(__thiscall*)(IBaseClientDll*, int, float, bool);
+
+void __stdcall hooks_new_hooked_createmove(int sequence_number, float input_sample_frametime, bool active, bool& bSendPacket)
+{
+	static auto original_fn = g_pClientHook->GetOriginal <newCreateMove_t>(22);
+	original_fn(interfaces.client, sequence_number, input_sample_frametime, active);
+	CUserCmd* m_pcmd = interfaces.input->GetUserCmdp(sequence_number);
+	CVerifiedUserCmd* verified = interfaces.input->GetVerifiedCmd(sequence_number);
+
+	if (!m_pcmd)
+		return;
+
+	if (!m_pcmd->command_number)
+		return;
+	//maybe need better validation
+	//bSendPacket = true;
+
+	bSendPacket = csgo->send_packet;
+	verified->m_cmd = *m_pcmd;
+	verified->m_crc = m_pcmd->GetChecksum();
+}
+
+
+
+
+
 bool __stdcall Hooked_CreateMove(float a, CUserCmd* cmd) {
 	static auto CreateMove = g_pClientModeHook->GetOriginal< CreateMoveFn >(24);
-
-	uintptr_t* framePtr; __asm mov framePtr, ebp;
-
-	
-
 
 	Ragebot::Get().DropTarget();
 
@@ -1599,7 +1620,7 @@ bool __stdcall Hooked_CreateMove(float a, CUserCmd* cmd) {
 	if (csgo->local->isAlive()) {
 		if (csgo->skip_ticks > 0) {
 		
-			*(bool*)(*framePtr - 0x34) = false;
+			csgo->send_packet = false;
 			csgo->cmd->tick_count = INT_MAX;
 			return false;
 			
@@ -1823,7 +1844,7 @@ bool __stdcall Hooked_CreateMove(float a, CUserCmd* cmd) {
 		*(bool*)(*framePtr - 0x1C) = csgo->send_packet;
 		* */
 
-	*(bool*)(*framePtr - 0x34) = csgo->send_packet;
+	//*(bool*)(*framePtr - 0x34) = csgo->send_packet;
 	g_Animfix->UpdateFakeState();
 	return false;
 }

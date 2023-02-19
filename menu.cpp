@@ -605,8 +605,8 @@ void c_menu::render() {
 				main_child->add_element(new c_colorpicker(&vars.ragebot.shot_clr,
 					color_t(255, 255, 255, 255), [] { return vars.ragebot.enable && vars.ragebot.shotrecord; }));
 
-				main_child->add_element(new c_checkbox("Hitchams",
-					&vars.ragebot.shotrecord, enable_rage));
+				//main_child->add_element(new c_checkbox("Hitchams",
+				//	&vars.ragebot.shotrecord, enable_rage));
 
 				main_child->add_element(new c_checkbox("Visualize Aimbot",
 					&vars.ragebot.NOnsilent, enable_rage));

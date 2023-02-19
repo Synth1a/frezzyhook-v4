@@ -70,7 +70,7 @@ private:
 	bool HandleBulletPenetration(CCSWeaponInfo* info, FireBulletData_t& data, bool extracheck = false, Vector point = Vector(0, 0, 0));
 	bool TraceToExit(trace_t* enter_trace, Vector start, Vector dir, trace_t* exit_trace);
 	void TraceLine(Vector& start, Vector& end, unsigned int mask, IBasePlayer* ignore, trace_t* trace);
-	void ClipTrace(Vector& start, Vector& end, IBasePlayer* e, unsigned int mask, ITraceFilter* filter, trace_t* old_trace);
+	void ClipTrace(Vector& start, Vector end, IBasePlayer* e, unsigned int mask, ITraceFilter* filter, trace_t* old_trace);
 	bool IsBreakableEntity(IBasePlayer* e);
 
 	float HitgroupDamage(int iHitGroup);

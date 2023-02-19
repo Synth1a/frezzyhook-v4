@@ -24,7 +24,7 @@
 //get_eye_ang::fn H::GetEyeAng;//toate sunt aici
 
 inline static uintptr_t	p_CL_Move;
-
+vmthook* client_hook;
 ClMoveFn H::ClMove;
 CLSendMoveFn H::oCLSendMove;
 GetForeignFallbackFontNameFn H::GetForeignFallbackFontName;
@@ -178,6 +178,35 @@ void CSignatures::Initialize() {
 	
 
 }
+template<typename T>
+static T* get_interface(const char* mod_name, const char* interface_name, bool exact = false) {
+	T* iface = nullptr;
+	InterfaceReg* register_list;
+	int part_match_len = strlen(interface_name); //-V103
+
+	DWORD interface_fn = reinterpret_cast<DWORD>(GetProcAddress(GetModuleHandleA(mod_name), ("CreateInterface")));
+
+	if (!interface_fn) {
+		return nullptr;
+	}
+
+	unsigned int jump_start = (unsigned int)(interface_fn)+4;
+	unsigned int jump_target = jump_start + *(unsigned int*)(jump_start + 1) + 5;
+
+	register_list = **reinterpret_cast<InterfaceReg***>(jump_target + 6);
+
+	for (InterfaceReg* cur = register_list; cur; cur = cur->m_pNext) {
+		if (exact == true) {
+			if (strcmp(cur->m_pName, interface_name) == 0)
+				iface = reinterpret_cast<T*>(cur->m_CreateFn());
+		}
+		else {
+			if (!strncmp(cur->m_pName, interface_name, part_match_len) && std::atoi(cur->m_pName + part_match_len) > 0) //-V106
+				iface = reinterpret_cast<T*>(cur->m_CreateFn());
+		}
+	}
+	return iface;
+}
 
 void I::Setup()
 {
@@ -267,7 +296,7 @@ void I::Setup()
 	static auto test = g_Patterns[fnv::hash(hs::effects::s().c_str())];
 	test = test;
 
-	interfaces.client = Interface< IBaseClientDll >(( g_Modules[fnv::hash(hs::client_dll::s().c_str())].c_str()), hs::client::s().c_str());
+	interfaces.client = get_interface<IBaseClientDll>("client.dll", ("VClient0"));
 
 	interfaces.ent_list = Interface< CEntityList >((
 		g_Modules[fnv::hash(hs::client_dll::s().c_str())].c_str()),
@@ -516,6 +545,30 @@ std::uint8_t* pattern_scan(const char* module_name, const char* signature) noexc
 	return H::GetEyeAng(ecx, edx);
 }	*/
 
+
+
+
+
+
+
+__declspec(naked) void __stdcall hooked_createmove_naked(int sequence_number, float input_sample_frametime, bool active)
+{
+	__asm
+	{
+		push ebx
+		push esp
+		push dword ptr[esp + 20]
+		push dword ptr[esp + 0Ch + 8]
+		push dword ptr[esp + 10h + 4]
+		call hooks_new_hooked_createmove
+		pop ebx
+		retn 0Ch
+	}
+}
+
+
+
+
 void H::Hook()
 {
 	for (int i = 0; i < 256; i++) {
@@ -600,7 +653,8 @@ void H::Hook()
 	g_pVGUIHook = std::make_unique< VMTHook >();
 	g_pClientHook = std::make_unique< VMTHook >();
 	g_SteamAPI = std::make_unique< VMTHook >();
-
+	
+	
 	g_pEngineHook->Setup(interfaces.engine);
 	g_pPanelHook->Setup(interfaces.v_panel);
 	g_pClientHook->Setup(interfaces.client);
@@ -617,6 +671,7 @@ void H::Hook()
 	g_pVGUIHook->Setup(interfaces.engine_vgui);
 	g_pClientStateAdd->Setup((CClientState*)(uint32_t(csgo->client_state) + 0x8));
 	g_SteamAPI->Setup(SteamGameCoordinator);
+
 	for (auto e = Effects; e; e = e->next)
 	{
 		if (strstr(e->effectName, hs::impact::s().c_str()) && strlen(e->effectName) <= 8) {
@@ -630,12 +685,15 @@ void H::Hook()
 
 	//auto get_eye_ang_target = (void*)csgo->Utils.FindPatternIDA(GetModuleHandleA("client.dll"), "56 8B F1 85 F6 74 32");
 
-	//g_pClientHook->Hook(22, Hooked_CreateMoveProxy);
-	g_SteamAPI->Hook(0, Hooked_SendSteamMsg);
-	g_SteamAPI->Hook(2, Hooked_RetrieveMsg);
-	g_pClientHook->Hook(37, Hooked_FrameStageNotify);
-	//g_pClientHook->Hook(24, Hooked_WriteUsercmdDeltaToBuffer); // AYE
-	g_pEngineHook->Hook(32, Hooked_IsBoxVisible);
+	
+	
+	g_pClientHook->Hook(37, Hooked_FrameStageNotify);// fixed
+	g_pClientHook->Hook(22, hooked_createmove_naked);// fixed
+	
+	
+
+
+	g_pEngineHook->Hook(32, Hooked_IsBoxVisible); // ? just dont work hook lol
 	g_pEngineHook->Hook(93, Hooked_IsHLTV);
 	g_pEngineHook->Hook(101, Hooked_GetScreenAspectRatio);
 	g_pShadow->Hook(13, Hooked_ShouldDrawShadow);
@@ -691,7 +749,8 @@ void H::Hook()
 
 
 	H::GetEyeAnglesO = (GetEyeAnglesFn)DetourFunction((PBYTE)EyeAngles, (PBYTE)hkGetEyeAngles);
-
+	g_SteamAPI->Hook(0, Hooked_SendSteamMsg);
+	g_SteamAPI->Hook(2, Hooked_RetrieveMsg);
 
 	//H::SteamPresent = (steamoverlay_present)DetourFunction((PBYTE)present_pattern, (PBYTE)Hooked_Present);
 	//H::SteamReset = (steamoverlay_reset)DetourFunction((PBYTE)reset_pattern, (PBYTE)Hooked_Reset);
@@ -720,6 +779,7 @@ void H::Hook()
 
 
 
+
 	if (csgo->Init.Window)
 		csgo->Init.OldWindow = (WNDPROC)SetWindowLongPtr(csgo->Init.Window, GWL_WNDPROC, (LONG_PTR)Hooked_WndProc);
 
@@ -729,6 +789,14 @@ void H::Hook()
 	g_Modules.clear();*/
 
 	//F::LineToSmoke = (LineGoesThroughSmokeFn)csgo->Utils.FindPatternIDA(GetModuleHandleA(g_Modules[fnv::hash(hs::client_dll::s().c_str())]), "55 8B EC 83 EC 08 8B 15 ? ? ? ? 0F 57 C0");
+
+	const char* fart[]{ "client.dll", "engine.dll", "server.dll", "studiorender.dll", "materialsystem.dll", "shaderapidx9.dll", "vstdlib.dll", "vguimatsurface.dll" };
+	long long amongus = 0x69690004C201B0;
+	for (auto sex : fart) WriteProcessMemory(GetCurrentProcess(),
+		(LPVOID)csgo->Utils.FindPatternIDA(GetModuleHandleA(sex), "55 8B EC 56 8B F1 33 C0 57 8B 7D 08"), &amongus, 7, 0);
+
+	
+
 }
 
 void H::UnHook()

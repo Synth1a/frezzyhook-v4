@@ -7,6 +7,8 @@ int ScreenSize2W, ScreenSize2H;
 void __stdcall Hooked_PaintTraverse(unsigned int vguiPanel, bool forceRepaint, bool allowForce)
 {
 	static auto PaintTraverse = g_pPanelHook->GetOriginal< PaintTraverseFn >(41);
+	if (interfaces.engine->IsInGame() && interfaces.engine->IsConnected())
+		csgo->local = interfaces.ent_list->GetClientEntity(interfaces.engine->GetLocalPlayer());
 
 	if (csgo->DoUnload) {
 		interfaces.v_panel->SetMouseInputEnabled(vguiPanel, 0);

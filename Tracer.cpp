@@ -8,7 +8,7 @@ void CBulletTracer::Log(IGameEvent* pEvent)
 
 		auto pPlayer = interfaces.ent_list->GetClientEntity(iUser);
 
-		if (!pPlayer)
+		if (!pPlayer || !csgo->local)
 			return;
 
 		if (pPlayer->GetTeam() == csgo->local->GetTeam() && pPlayer != csgo->local)

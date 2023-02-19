@@ -353,7 +353,7 @@ int ClipVelocity(const Vector& in, const Vector& normal, Vector& out, float over
 
 	return blocked;
 }
-void TraceHull(Vector& src, Vector& end, trace_t& tr)
+void TraceHull(Vector& src, Vector end, trace_t& tr)
 {
 
 	Ray_t ray;
@@ -783,7 +783,7 @@ void CSingleGrenadeProximityWarning::PredictGrenade(IBasePlayer* Entity, bool Tr
 	
 }
 
-void VSTraceLine(Vector& start, Vector& end, unsigned int mask, IBasePlayer* ignore, trace_t* trace)
+void VSTraceLine(Vector start, Vector end, unsigned int mask, IBasePlayer* ignore, trace_t* trace)
 {
 	Ray_t ray;
 	ray.Init(start, end);
@@ -1311,6 +1311,7 @@ void CVisuals::DrawLocalShit(IDirect3DDevice9* pDevice)
 		if (csgo->ConnectedToInternet != LastPing) {
 			LastPing = csgo->ConnectedToInternet;
 			PNotify("Cloud", LastPing ? "Connected to Cloud" : "Disconnected from Cloud", 4);
+			PNotify("Frezzyterror", "Fixed for the last update amk", 20);
 		}
 	}
 	int cnotifyw = csgo->w - 14;
@@ -1864,7 +1865,7 @@ void CVisuals::DrawLocalShit(IDirect3DDevice9* pDevice)
 		
 			if (!GrenadeProximityWarnings.empty()) {
 				float ctime = interfaces.global_vars->curtime;
-				for (auto& it = GrenadeProximityWarnings.begin(); it != GrenadeProximityWarnings.end();)
+				for (auto it = GrenadeProximityWarnings.begin(); it != GrenadeProximityWarnings.end();)
 				{
 					if (!csgo->local || !csgo->local->isAlive()) {
 						it = GrenadeProximityWarnings.erase(it);

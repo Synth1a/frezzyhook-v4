@@ -1,5 +1,5 @@
 #include "discord.h"
-#include "../../disrpc/Includes/discord_rpc.h"
+#include "disrpc/Includes/discord_rpc.h"
 
 void Discord::Initialize()
 {
